@@ -32,6 +32,9 @@ build/Release
 # Dist folder
 dist
 
+# development db
+database/*.sqlite
+
 # Dependency directories
 node_modules/
 jspm_packages/
