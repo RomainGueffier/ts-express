@@ -14,7 +14,18 @@ router
             return res.json(formattedRes('Cannot connect to table User'))
         }
     })
-    .post('/add', async (req, res) => {
+    .get('/:id', async (req, res) => {
+        const userId = req.params.id?.toString()
+        try {
+            const user = await User.findByPk(userId)
+            if (!user) return res.sendStatus(404)
+            res.json(user)
+        } catch (error) {
+            console.error(error)
+            return res.json(formattedRes('Cannot connect to table User'))
+        }
+    })
+    .post('/', async (req, res) => {
         if (!req.body) return res.json()
 
         // maybe validate req.body?
@@ -37,6 +48,38 @@ router
             )
         }
         res.json(data)
+    })
+    .put('/:id', async (req, res) => {
+        if (!req.body) return res.json()
+
+        // insert into table user
+        try {
+            await User.update(req.body, {
+                where: {
+                    id: req.params.id,
+                },
+            })
+            res.json(req.body)
+        } catch (error) {
+            console.error(error)
+            return res.json(formattedRes('Cannot update User ' + req.params.id))
+        }
+    })
+    .delete('/:id', async (req, res) => {
+        if (!req.params.id) return res.sendStatus(404)
+
+        // insert into table user
+        try {
+            await User.destroy({
+                where: {
+                    id: req.params.id,
+                },
+            })
+            res.json(formattedRes(`User ${req.params.id} has been deleted`))
+        } catch (error) {
+            console.error(error)
+            return res.json(formattedRes('Cannot delete User ' + req.params.id))
+        }
     })
 
 export default router
