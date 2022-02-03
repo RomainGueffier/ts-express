@@ -11,7 +11,7 @@ router
             res.json(prospects)
         } catch (error) {
             console.error(error)
-            return res.json(formattedRes('Cannot connect to table User'))
+            return res.json(formattedRes('Cannot retrieve prospects'))
         }
     })
     .get('/:id', async (req, res) => {
@@ -24,7 +24,7 @@ router
             res.json(prospect)
         } catch (error) {
             console.error(error)
-            return res.json(formattedRes('Cannot connect to table User'))
+            return res.json(formattedRes('Cannot retrieve the prospect'))
         }
     })
     .post('/', async (req, res) => {
@@ -37,7 +37,7 @@ router
         } catch (error) {
             console.error(error)
             return res.json(
-                formattedRes('Cannot create new entry, bad formatted data')
+                formattedRes('Cannot create new entry, badly formatted data')
             )
         }
         res.json(prospect)
@@ -54,7 +54,9 @@ router
             res.json(req.body)
         } catch (error) {
             console.error(error)
-            return res.json(formattedRes('Cannot update User ' + req.params.id))
+            return res.json(
+                formattedRes('Cannot update prospect ' + req.params.id)
+            )
         }
     })
     .delete('/:id', async (req, res) => {
@@ -64,10 +66,12 @@ router
         const id = parseInt(req.params.id)
         try {
             await Prospects.delete(id)
-            res.json(formattedRes(`User ${req.params.id} has been deleted`))
+            res.json(formattedRes(`Prospect ${req.params.id} has been deleted`))
         } catch (error) {
             console.error(error)
-            return res.json(formattedRes('Cannot delete User ' + req.params.id))
+            return res.json(
+                formattedRes('Cannot delete prospect ' + req.params.id)
+            )
         }
     })
 
