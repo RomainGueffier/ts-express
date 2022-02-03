@@ -1,0 +1,28 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model prospects {
+  id                Int     @id @default(autoincrement())
+  name              String? @map("NOM") @db.VarChar(100)
+  address           String? @map("ADRESSE1") @db.VarChar(500)
+  addressComplement String? @map("ADRESSE2") @db.VarChar(42)
+  postalCode        String? @map("CODEPOSTAL") @db.VarChar(5)
+  city              String? @map("VILLE") @db.VarChar(100)
+  phone             String? @map("TEL1") @db.VarChar(10)
+  mobile            String? @map("TEL2") @db.VarChar(10)
+  fax               String? @map("FAX") @db.VarChar(10)
+  activity          String? @map("ACTIVITE") @db.VarChar(94)
+  email             String  @default("") @map("EMAIL") @db.VarChar(255)
+  workforce         String? @map("EFFECTIF") @db.VarChar(45)
+  managerLastname   String? @map("RESP_NOM") @db.VarChar(255)
+  managerFirstname  String? @map("RESP_PRENOM") @db.VarChar(255)
+  managerGender     String? @map("RESP_CIVILITE") @db.VarChar(45)
+
+  @@index([phone], map: "TEL1")
+}
