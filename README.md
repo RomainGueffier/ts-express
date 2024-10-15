@@ -9,8 +9,7 @@
 
 ## About <a name = "about"></a>
 
-Write about 1-2 paragraphs describing the purpose of your project.
-https://richbray.medium.com/how-to-set-up-a-node-16-express-typescript-api-1cea73bd83ca
+Reproduction branch for issue [TSOA#1651](https://github.com/lukeautry/tsoa/issues/1651)
 
 ## Getting Started <a name = "getting_started"></a>
 
@@ -18,30 +17,33 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them.
+Install node js
 
 ```
-Give examples
+nvm use 22
 ```
 
 ### Installing
 
 A step by step series of examples that tell you how to get a development env running.
 
-Say what the step will be
+Start postgre db
 
 ```
-Give the example
+docker run --name postgres -e POSTGRES_PASSWORD=localdev -p 5432:5432 -d postgres
 ```
 
-And repeat
+Add .env file
 
 ```
-until finished
+PORT=3000
+NODE_ENV=development
+DATABASE_URL=postgresql://postgres:localdev@localhost:5432/postgres
 ```
 
-End with an example of getting some data out of the system or using it for a little demo.
+Run app
 
-## Usage <a name = "usage"></a>
-
-Add notes about how to use the system.
+```
+pnpm i
+pnpm dev
+```
