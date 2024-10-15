@@ -1,0 +1,235 @@
+{
+	"openapi": "3.0.0",
+	"components": {
+		"examples": {},
+		"headers": {},
+		"parameters": {},
+		"requestBodies": {},
+		"responses": {},
+		"schemas": {
+			"_36_Enums.Civility": {
+				"type": "string",
+				"enum": [
+					"MR",
+					"MRS"
+				]
+			},
+			"DefaultSelection_Prisma._36_ProspectPayload_": {
+				"properties": {
+					"managerCivility": {
+						"$ref": "#/components/schemas/_36_Enums.Civility"
+					},
+					"managerFirstname": {
+						"type": "string"
+					},
+					"managerLastname": {
+						"type": "string"
+					},
+					"workforce": {
+						"type": "string"
+					},
+					"email": {
+						"type": "string"
+					},
+					"activity": {
+						"type": "string"
+					},
+					"mobile": {
+						"type": "string"
+					},
+					"phone": {
+						"type": "string"
+					},
+					"city": {
+						"type": "string"
+					},
+					"postalCode": {
+						"type": "string"
+					},
+					"addressComplement": {
+						"type": "string"
+					},
+					"address": {
+						"type": "string"
+					},
+					"id": {
+						"type": "number",
+						"format": "double"
+					},
+					"name": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"managerCivility",
+					"managerFirstname",
+					"managerLastname",
+					"workforce",
+					"email",
+					"activity",
+					"mobile",
+					"phone",
+					"city",
+					"postalCode",
+					"addressComplement",
+					"address",
+					"id",
+					"name"
+				],
+				"type": "object"
+			},
+			"Prospect": {
+				"$ref": "#/components/schemas/DefaultSelection_Prisma._36_ProspectPayload_",
+				"description": "Model Prospect"
+			},
+			"APIResponse_Prospect-or-null_": {
+				"properties": {
+					"data": {
+						"allOf": [
+							{
+								"$ref": "#/components/schemas/Prospect"
+							}
+						],
+						"nullable": true
+					}
+				},
+				"required": [
+					"data"
+				],
+				"type": "object"
+			},
+			"ProspectResponse": {
+				"$ref": "#/components/schemas/APIResponse_Prospect-or-null_"
+			},
+			"Partial_Prospect_": {
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"id": {
+						"type": "number",
+						"format": "double"
+					},
+					"address": {
+						"type": "string"
+					},
+					"addressComplement": {
+						"type": "string"
+					},
+					"postalCode": {
+						"type": "string"
+					},
+					"city": {
+						"type": "string"
+					},
+					"phone": {
+						"type": "string"
+					},
+					"mobile": {
+						"type": "string"
+					},
+					"activity": {
+						"type": "string"
+					},
+					"email": {
+						"type": "string"
+					},
+					"workforce": {
+						"type": "string"
+					},
+					"managerLastname": {
+						"type": "string"
+					},
+					"managerFirstname": {
+						"type": "string"
+					},
+					"managerCivility": {
+						"$ref": "#/components/schemas/_36_Enums.Civility"
+					}
+				},
+				"type": "object",
+				"description": "Make all properties in T optional"
+			}
+		},
+		"securitySchemes": {}
+	},
+	"info": {
+		"title": "ts-express",
+		"version": "1.0.0",
+		"description": "Typescript Express Tsoa Template",
+		"contact": {}
+	},
+	"paths": {
+		"/prospects/{id}": {
+			"get": {
+				"operationId": "FindProspectById",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ProspectResponse"
+								}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "id",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/prospects": {
+			"post": {
+				"operationId": "CreateProspectById",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"data": {
+											"$ref": "#/components/schemas/Prospect"
+										}
+									},
+									"required": [
+										"data"
+									],
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/Partial_Prospect_"
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"servers": [
+		{
+			"url": "/"
+		}
+	]
+}
