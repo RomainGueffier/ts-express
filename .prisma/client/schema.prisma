@@ -14,7 +14,7 @@ enum Civility {
 }
 
 model Prospect {
-  id                Int       @id @default(autoincrement())
+  id                Int      @id @default(autoincrement())
   name              String?
   address           String?
   addressComplement String?
@@ -27,7 +27,7 @@ model Prospect {
   workforce         String?
   managerLastname   String?
   managerFirstname  String?
-  managerCivility   Civility?
+  managerCivility   Civility @default(MR)
 
   @@index([phone, email])
   @@map("prospects")

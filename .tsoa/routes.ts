@@ -27,6 +27,16 @@ const models: TsoaRoute.Models = {
         "type": {"ref":"DefaultSelection_Prisma._36_ProspectPayload_","validators":{}},
     },
     // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "APIResponse_Prospect-Array_": {
+        "dataType": "refAlias",
+        "type": {"dataType":"nestedObjectLiteral","nestedProperties":{"data":{"dataType":"array","array":{"dataType":"refAlias","ref":"Prospect"},"required":true}},"validators":{}},
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "ProspectArrayResponse": {
+        "dataType": "refAlias",
+        "type": {"ref":"APIResponse_Prospect-Array_","validators":{}},
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
     "APIResponse_Prospect-or-null_": {
         "dataType": "refAlias",
         "type": {"dataType":"nestedObjectLiteral","nestedProperties":{"data":{"dataType":"union","subSchemas":[{"ref":"Prospect"},{"dataType":"enum","enums":[null]}],"required":true}},"validators":{}},
@@ -59,6 +69,35 @@ export function RegisterRoutes(app: Router) {
 
 
     
+        app.get('/prospects',
+            ...(fetchMiddlewares<RequestHandler>(ProspectsController)),
+            ...(fetchMiddlewares<RequestHandler>(ProspectsController.prototype.findManyProspect)),
+
+            async function ProspectsController_findManyProspect(request: ExRequest, response: ExResponse, next: any) {
+            const args: Record<string, TsoaRoute.ParameterSchema> = {
+            };
+
+            // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+            let validatedArgs: any[] = [];
+            try {
+                validatedArgs = templateService.getValidatedArgs({ args, request, response });
+
+                const controller = new ProspectsController();
+
+              await templateService.apiHandler({
+                methodName: 'findManyProspect',
+                controller,
+                response,
+                next,
+                validatedArgs,
+                successStatus: undefined,
+              });
+            } catch (err) {
+                return next(err);
+            }
+        });
+        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
         app.get('/prospects/:id',
             ...(fetchMiddlewares<RequestHandler>(ProspectsController)),
             ...(fetchMiddlewares<RequestHandler>(ProspectsController.prototype.findProspectById)),

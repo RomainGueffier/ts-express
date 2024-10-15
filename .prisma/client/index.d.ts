@@ -1093,7 +1093,7 @@ export namespace Prisma {
     workforce: string | null
     managerLastname: string | null
     managerFirstname: string | null
-    managerCivility: $Enums.Civility | null
+    managerCivility: $Enums.Civility
     _count: ProspectCountAggregateOutputType | null
     _avg: ProspectAvgAggregateOutputType | null
     _sum: ProspectSumAggregateOutputType | null
@@ -1184,7 +1184,7 @@ export namespace Prisma {
       workforce: string | null
       managerLastname: string | null
       managerFirstname: string | null
-      managerCivility: $Enums.Civility | null
+      managerCivility: $Enums.Civility
     }, ExtArgs["result"]["prospect"]>
     composites: {}
   }
@@ -2019,7 +2019,7 @@ export namespace Prisma {
     workforce?: StringNullableFilter<"Prospect"> | string | null
     managerLastname?: StringNullableFilter<"Prospect"> | string | null
     managerFirstname?: StringNullableFilter<"Prospect"> | string | null
-    managerCivility?: EnumCivilityNullableFilter<"Prospect"> | $Enums.Civility | null
+    managerCivility?: EnumCivilityFilter<"Prospect"> | $Enums.Civility
   }
 
   export type ProspectOrderByWithRelationInput = {
@@ -2036,7 +2036,7 @@ export namespace Prisma {
     workforce?: SortOrderInput | SortOrder
     managerLastname?: SortOrderInput | SortOrder
     managerFirstname?: SortOrderInput | SortOrder
-    managerCivility?: SortOrderInput | SortOrder
+    managerCivility?: SortOrder
   }
 
   export type ProspectWhereUniqueInput = Prisma.AtLeast<{
@@ -2056,7 +2056,7 @@ export namespace Prisma {
     workforce?: StringNullableFilter<"Prospect"> | string | null
     managerLastname?: StringNullableFilter<"Prospect"> | string | null
     managerFirstname?: StringNullableFilter<"Prospect"> | string | null
-    managerCivility?: EnumCivilityNullableFilter<"Prospect"> | $Enums.Civility | null
+    managerCivility?: EnumCivilityFilter<"Prospect"> | $Enums.Civility
   }, "id">
 
   export type ProspectOrderByWithAggregationInput = {
@@ -2073,7 +2073,7 @@ export namespace Prisma {
     workforce?: SortOrderInput | SortOrder
     managerLastname?: SortOrderInput | SortOrder
     managerFirstname?: SortOrderInput | SortOrder
-    managerCivility?: SortOrderInput | SortOrder
+    managerCivility?: SortOrder
     _count?: ProspectCountOrderByAggregateInput
     _avg?: ProspectAvgOrderByAggregateInput
     _max?: ProspectMaxOrderByAggregateInput
@@ -2098,7 +2098,7 @@ export namespace Prisma {
     workforce?: StringNullableWithAggregatesFilter<"Prospect"> | string | null
     managerLastname?: StringNullableWithAggregatesFilter<"Prospect"> | string | null
     managerFirstname?: StringNullableWithAggregatesFilter<"Prospect"> | string | null
-    managerCivility?: EnumCivilityNullableWithAggregatesFilter<"Prospect"> | $Enums.Civility | null
+    managerCivility?: EnumCivilityWithAggregatesFilter<"Prospect"> | $Enums.Civility
   }
 
   export type ProspectCreateInput = {
@@ -2114,7 +2114,7 @@ export namespace Prisma {
     workforce?: string | null
     managerLastname?: string | null
     managerFirstname?: string | null
-    managerCivility?: $Enums.Civility | null
+    managerCivility?: $Enums.Civility
   }
 
   export type ProspectUncheckedCreateInput = {
@@ -2131,7 +2131,7 @@ export namespace Prisma {
     workforce?: string | null
     managerLastname?: string | null
     managerFirstname?: string | null
-    managerCivility?: $Enums.Civility | null
+    managerCivility?: $Enums.Civility
   }
 
   export type ProspectUpdateInput = {
@@ -2147,7 +2147,7 @@ export namespace Prisma {
     workforce?: NullableStringFieldUpdateOperationsInput | string | null
     managerLastname?: NullableStringFieldUpdateOperationsInput | string | null
     managerFirstname?: NullableStringFieldUpdateOperationsInput | string | null
-    managerCivility?: NullableEnumCivilityFieldUpdateOperationsInput | $Enums.Civility | null
+    managerCivility?: EnumCivilityFieldUpdateOperationsInput | $Enums.Civility
   }
 
   export type ProspectUncheckedUpdateInput = {
@@ -2164,7 +2164,7 @@ export namespace Prisma {
     workforce?: NullableStringFieldUpdateOperationsInput | string | null
     managerLastname?: NullableStringFieldUpdateOperationsInput | string | null
     managerFirstname?: NullableStringFieldUpdateOperationsInput | string | null
-    managerCivility?: NullableEnumCivilityFieldUpdateOperationsInput | $Enums.Civility | null
+    managerCivility?: EnumCivilityFieldUpdateOperationsInput | $Enums.Civility
   }
 
   export type ProspectCreateManyInput = {
@@ -2181,7 +2181,7 @@ export namespace Prisma {
     workforce?: string | null
     managerLastname?: string | null
     managerFirstname?: string | null
-    managerCivility?: $Enums.Civility | null
+    managerCivility?: $Enums.Civility
   }
 
   export type ProspectUpdateManyMutationInput = {
@@ -2197,7 +2197,7 @@ export namespace Prisma {
     workforce?: NullableStringFieldUpdateOperationsInput | string | null
     managerLastname?: NullableStringFieldUpdateOperationsInput | string | null
     managerFirstname?: NullableStringFieldUpdateOperationsInput | string | null
-    managerCivility?: NullableEnumCivilityFieldUpdateOperationsInput | $Enums.Civility | null
+    managerCivility?: EnumCivilityFieldUpdateOperationsInput | $Enums.Civility
   }
 
   export type ProspectUncheckedUpdateManyInput = {
@@ -2214,7 +2214,7 @@ export namespace Prisma {
     workforce?: NullableStringFieldUpdateOperationsInput | string | null
     managerLastname?: NullableStringFieldUpdateOperationsInput | string | null
     managerFirstname?: NullableStringFieldUpdateOperationsInput | string | null
-    managerCivility?: NullableEnumCivilityFieldUpdateOperationsInput | $Enums.Civility | null
+    managerCivility?: EnumCivilityFieldUpdateOperationsInput | $Enums.Civility
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -2243,11 +2243,11 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type EnumCivilityNullableFilter<$PrismaModel = never> = {
-    equals?: $Enums.Civility | EnumCivilityFieldRefInput<$PrismaModel> | null
-    in?: $Enums.Civility[] | ListEnumCivilityFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.Civility[] | ListEnumCivilityFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumCivilityNullableFilter<$PrismaModel> | $Enums.Civility | null
+  export type EnumCivilityFilter<$PrismaModel = never> = {
+    equals?: $Enums.Civility | EnumCivilityFieldRefInput<$PrismaModel>
+    in?: $Enums.Civility[] | ListEnumCivilityFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Civility[] | ListEnumCivilityFieldRefInput<$PrismaModel>
+    not?: NestedEnumCivilityFilter<$PrismaModel> | $Enums.Civility
   }
 
   export type SortOrderInput = {
@@ -2348,22 +2348,22 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
-  export type EnumCivilityNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.Civility | EnumCivilityFieldRefInput<$PrismaModel> | null
-    in?: $Enums.Civility[] | ListEnumCivilityFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.Civility[] | ListEnumCivilityFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumCivilityNullableWithAggregatesFilter<$PrismaModel> | $Enums.Civility | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedEnumCivilityNullableFilter<$PrismaModel>
-    _max?: NestedEnumCivilityNullableFilter<$PrismaModel>
+  export type EnumCivilityWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.Civility | EnumCivilityFieldRefInput<$PrismaModel>
+    in?: $Enums.Civility[] | ListEnumCivilityFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Civility[] | ListEnumCivilityFieldRefInput<$PrismaModel>
+    not?: NestedEnumCivilityWithAggregatesFilter<$PrismaModel> | $Enums.Civility
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumCivilityFilter<$PrismaModel>
+    _max?: NestedEnumCivilityFilter<$PrismaModel>
   }
 
   export type NullableStringFieldUpdateOperationsInput = {
     set?: string | null
   }
 
-  export type NullableEnumCivilityFieldUpdateOperationsInput = {
-    set?: $Enums.Civility | null
+  export type EnumCivilityFieldUpdateOperationsInput = {
+    set?: $Enums.Civility
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -2399,11 +2399,11 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type NestedEnumCivilityNullableFilter<$PrismaModel = never> = {
-    equals?: $Enums.Civility | EnumCivilityFieldRefInput<$PrismaModel> | null
-    in?: $Enums.Civility[] | ListEnumCivilityFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.Civility[] | ListEnumCivilityFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumCivilityNullableFilter<$PrismaModel> | $Enums.Civility | null
+  export type NestedEnumCivilityFilter<$PrismaModel = never> = {
+    equals?: $Enums.Civility | EnumCivilityFieldRefInput<$PrismaModel>
+    in?: $Enums.Civility[] | ListEnumCivilityFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Civility[] | ListEnumCivilityFieldRefInput<$PrismaModel>
+    not?: NestedEnumCivilityFilter<$PrismaModel> | $Enums.Civility
   }
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -2461,14 +2461,14 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
-  export type NestedEnumCivilityNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.Civility | EnumCivilityFieldRefInput<$PrismaModel> | null
-    in?: $Enums.Civility[] | ListEnumCivilityFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.Civility[] | ListEnumCivilityFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumCivilityNullableWithAggregatesFilter<$PrismaModel> | $Enums.Civility | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedEnumCivilityNullableFilter<$PrismaModel>
-    _max?: NestedEnumCivilityNullableFilter<$PrismaModel>
+  export type NestedEnumCivilityWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.Civility | EnumCivilityFieldRefInput<$PrismaModel>
+    in?: $Enums.Civility[] | ListEnumCivilityFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Civility[] | ListEnumCivilityFieldRefInput<$PrismaModel>
+    not?: NestedEnumCivilityWithAggregatesFilter<$PrismaModel> | $Enums.Civility
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumCivilityFilter<$PrismaModel>
+    _max?: NestedEnumCivilityFilter<$PrismaModel>
   }
 
 
